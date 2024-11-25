@@ -59,4 +59,8 @@ An AI-powered therapy chat application utilizing FastAPI, Next.js, and multiple 
    ```bash
    pnpm dev
    ```
-6. Open your browser and visit `http://localhost:3000` to explore the AI Therapy Chat application.
+6. Start the FastAPI server:
+   ```bash
+   uvicorn main:app --reload
+   ```
+7. Open your browser and visit `http://localhost:3000` to explore the AI Therapy Chat application.

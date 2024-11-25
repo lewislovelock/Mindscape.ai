@@ -1,0 +1,30 @@
+{
+    "hero": {
+        "title": "AI Therapy Companion",
+        "subtitle": "Experience compassionate and understanding therapy sessions with our AI-powered therapists. Available 24/7, completely confidential."
+    },
+    "features": {
+        "availability": {
+            "title": "24/7 Availability",
+            "description": "Access therapeutic support whenever you need it, day or night."
+        },
+        "therapists": {
+            "title": "Multiple Therapists",
+            "description": "Choose from various AI therapists specialized in different areas."
+        },
+        "privacy": {
+            "title": "Secure & Private",
+            "description": "Your conversations are completely private and secure."
+        }
+    },
+    "chat": {
+        "selectTherapist": "Select Therapist",
+        "typeMessage": "Type your message...",
+        "send": "Send"
+    },
+    "NotFound": {
+        "title": "404 - Page Not Found",
+        "description": "The page you're looking for doesn't exist.",
+        "returnHome": "Return Home"
+    }
+}

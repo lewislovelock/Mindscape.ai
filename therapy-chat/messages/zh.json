@@ -1,0 +1,30 @@
+{
+    "hero": {
+        "title": "AI 心理治疗伴侣",
+        "subtitle": "体验由 AI 驱动的富有同理心和理解力的心理治疗会话。全天候服务，完全保密。"
+    },
+    "features": {
+        "availability": {
+            "title": "全天候服务",
+            "description": "随时随地获得心理治疗支持，昼夜不间断。"
+        },
+        "therapists": {
+            "title": "多位治疗师",
+            "description": "选择专注于不同领域的 AI 治疗师。"
+        },
+        "privacy": {
+            "title": "安全与隐私",
+            "description": "您的对话完全私密且安全。"
+        }
+    },
+    "chat": {
+        "selectTherapist": "选择治疗师",
+        "typeMessage": "输入消息...",
+        "send": "发送"
+    },
+    "NotFound": {
+        "title": "404 - 页面未找到",
+        "description": "您要查找的页面不存在。",
+        "returnHome": "返回首页"
+    }
+}

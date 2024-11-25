@@ -6,13 +6,19 @@ import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Avatar } from "@/components/ui/avatar"
 import { useToast } from "@/hooks/use-toast"
+import { useTranslations } from 'next-intl'
 
 interface Message {
   type: "assistant" | "user" | "system" | "error"
   content: string
 }
 
-export function ChatInterface() {
+interface ChatInterfaceProps {
+  selectedTherapist: string
+}
+
+export function ChatInterface({ selectedTherapist }: ChatInterfaceProps) {
+  const t = useTranslations('chat')
   const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState("")
   const [ws, setWs] = useState<WebSocket | null>(null)
@@ -40,6 +46,16 @@ export function ChatInterface() {
     return () => websocket.close()
   }, [])
 
+  // Effect to handle therapist changes
+  useEffect(() => {
+    if (ws && ws.readyState === WebSocket.OPEN) {
+      ws.send(JSON.stringify({
+        type: "switch_therapist",
+        therapist: selectedTherapist
+      }))
+    }
+  }, [selectedTherapist, ws])
+
   const sendMessage = (e?: React.FormEvent) => {
     e?.preventDefault()
     if (!input.trim() || !ws) return
@@ -52,6 +68,11 @@ export function ChatInterface() {
     setMessages(prev => [...prev, { type: "user", content: input }])
     setInput("")
   }
+
+  // Scroll to bottom when messages change
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }, [messages])
 
   return (
     <Card className="w-full max-w-2xl mx-auto h-[600px] flex flex-col rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl">
@@ -93,7 +114,7 @@ export function ChatInterface() {
           <Textarea
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Type your message..."
+            placeholder={t('typeMessage')}
             className="flex-1 bg-white/10 backdrop-blur-xl border border-white/10 rounded-xl shadow-inner resize-none min-h-[40px] py-2 px-3"
             onKeyDown={(e) => {
               if (e.key === "Enter" && !e.shiftKey) {
@@ -106,7 +127,7 @@ export function ChatInterface() {
             type="submit"
             className="rounded-xl bg-gradient-to-r from-blue-500 to-emerald-200 hover:opacity-90 transition-all shadow-lg h-[40px] px-4"
           >
-            Send
+            {t('send')}
           </Button>
         </div>
       </form>

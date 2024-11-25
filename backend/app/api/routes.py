@@ -68,7 +68,7 @@ async def websocket_endpoint(websocket: WebSocket, client_id: str):
 
 @app.get("/therapists")
 async def get_therapists():
-    from therapist_config import THERAPISTS
+    from app.config.therapist_config import THERAPISTS 
     return {
         key: {
             "name": therapist.name,
