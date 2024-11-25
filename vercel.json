@@ -1,8 +1,9 @@
 {
-    "buildCommand": "pnpm install && pnpm build",
-    "outputDirectory": ".next",
+    "version": 2,
+    "buildCommand": "cd therapy-chat && pnpm install && pnpm build",
+    "outputDirectory": "therapy-chat/.next",
+    "installCommand": "cd therapy-chat && pnpm install",
     "framework": "nextjs",
-    "installCommand": "pnpm install",
     "env": {
         "NEXT_PUBLIC_API_URL": "your-backend-url"
     }
